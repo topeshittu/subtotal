@@ -241,7 +241,7 @@
 /* ── Input fields ── */
 .login-layout .form-content form .input-wrapper {
     border: 1.5px solid #e5e7eb !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     padding: 0.5rem 0.875rem !important;
     background: #fafafa;
     margin-bottom: 1rem !important;
@@ -251,7 +251,7 @@
 
 .login-layout .form-content form .input-wrapper:focus-within {
     border-color: #7c3aed !important;
-    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.10);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
     background: #ffffff;
 }
 
@@ -336,27 +336,36 @@
 }
 
 .login-layout .form-content form .button-wrapper button[type="submit"] {
-    background: linear-gradient(135deg, #2d0060 0%, #7c3aed 100%) !important;
+    background-color: var(--btn-primary-base) !important;
     border: none !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     height: 3rem !important;
+    width: 100%;
     font-size: 0.9375rem !important;
     font-weight: 600 !important;
     letter-spacing: 0.01em;
     color: #ffffff !important;
-    width: 100%;
     cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
-    box-shadow: 0 4px 14px rgba(45, 0, 96, 0.30);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease !important;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.30);
 }
 
 .login-layout .form-content form .button-wrapper button[type="submit"]:hover {
-    opacity: 0.92;
+    background-color: var(--btn-primary-hover) !important;
     transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.35);
+}
+
+.login-layout .form-content form .button-wrapper button[type="submit"]:focus {
+    background-color: var(--btn-primary-base) !important;
+    box-shadow: 0 0 0 3px var(--btn-primary-ring) !important;
+    outline: none !important;
 }
 
 .login-layout .form-content form .button-wrapper button[type="submit"]:active {
+    background-color: var(--btn-primary-active) !important;
     transform: translateY(0);
+    box-shadow: 0 0 0 3px var(--btn-primary-ring) !important;
 }
 
 /* ── Form footer (register link) ── */
@@ -412,22 +421,36 @@
         min-height: 100vh !important;
     }
 
+    /* Gradient bar replaces the hidden left panel on mobile */
+    .login-layout::before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 72px;
+        background: linear-gradient(135deg, #2d0060 0%, #7c3aed 100%);
+        z-index: 10;
+    }
+
     .login-right-panel {
         min-height: 100vh;
-        padding: 3rem 1.5rem;
+        padding: 5.5rem 1.5rem 3rem;
         width: 100%;
     }
 
     .auth-logo {
-        top: 1.25rem;
+        top: 1rem;
         left: 1.25rem;
+        z-index: 20;
     }
 
     .auth-logo .logo-text {
-        color: #2d0060;
+        color: #ffffff;
     }
 
     .auth-logo img {
-        filter: none;
+        filter: brightness(0) invert(1);
     }
 }
