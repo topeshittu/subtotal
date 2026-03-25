@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('body_class', 'pos-page')
 
 @section('title', __('sale.pos_sale'))
 @section('css')
@@ -159,6 +160,7 @@
             @endif
         @endforeach
     @endif
+    <link rel="stylesheet" href="{{ asset('css/pos-redesign.css?v=' . $asset_v) }}">
 @stop
 @section('javascript')
     <script src="{{ asset('js/pos.js?v=' . $asset_v) }}"></script>

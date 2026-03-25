@@ -89,7 +89,7 @@ $pos_layout = false;
     <link rel="stylesheet" href="{{ asset('css/dark-mode.css?v=' . $asset_v) }}">
 </head>
 
-<body>
+<body class="@yield('body_class')">
 
     <!-- Add currency related field-->
         <input type="hidden" id="__code" value="{{ session('currency')['code'] }}">

@@ -169,8 +169,8 @@
 }
 
 /* ── Cart Table ── */
-.pos-page #cart_table,
-.pos-page table.pos-cart-table {
+.pos-page #pos_table,
+.pos-page table.pos-product-table {
     background: #ffffff;
     font-size: 0.875rem;
     width: 100%;
@@ -178,8 +178,8 @@
     flex: 1;
 }
 
-.pos-page #cart_table thead th,
-.pos-page table.pos-cart-table thead th {
+.pos-page #pos_table thead th,
+.pos-page table.pos-product-table thead th {
     background: #f8f5ff !important;
     color: #5b21b6 !important;
     font-size: 0.7rem !important;
@@ -192,19 +192,19 @@
     white-space: nowrap;
 }
 
-.pos-page #cart_table tbody tr,
-.pos-page table.pos-cart-table tbody tr {
+.pos-page #pos_table tbody tr,
+.pos-page table.pos-product-table tbody tr {
     border-bottom: 1px solid #f3f4f6 !important;
     transition: background 0.15s;
 }
 
-.pos-page #cart_table tbody tr:hover,
-.pos-page table.pos-cart-table tbody tr:hover {
+.pos-page #pos_table tbody tr:hover,
+.pos-page table.pos-product-table tbody tr:hover {
     background: #faf5ff !important;
 }
 
-.pos-page #cart_table tbody td,
-.pos-page table.pos-cart-table tbody td {
+.pos-page #pos_table tbody td,
+.pos-page table.pos-product-table tbody td {
     padding: 0.5rem 0.75rem !important;
     vertical-align: middle !important;
     border-top: none !important;
@@ -213,8 +213,8 @@
 }
 
 /* Qty input in cart */
-.pos-page #cart_table input[type="number"],
-.pos-page #cart_table input.qty {
+.pos-page #pos_table input[type="number"],
+.pos-page #pos_table input.qty {
     border: 1.5px solid #e5e7eb !important;
     border-radius: 6px !important;
     text-align: center;
@@ -226,8 +226,8 @@
     padding: 0 0.25rem;
 }
 
-.pos-page #cart_table input[type="number"]:focus,
-.pos-page #cart_table input.qty:focus {
+.pos-page #pos_table input[type="number"]:focus,
+.pos-page #pos_table input.qty:focus {
     border-color: #7c3aed !important;
     box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.12) !important;
     background: #ffffff !important;
@@ -235,8 +235,8 @@
 }
 
 /* Delete row button */
-.pos-page #cart_table .remove-from-cart,
-.pos-page #cart_table .pos-remove-btn {
+.pos-page #pos_table .remove-from-cart,
+.pos-page #pos_table .pos-remove-btn {
     color: #ef4444 !important;
     background: transparent !important;
     border: none !important;
@@ -247,8 +247,8 @@
     transition: opacity 0.15s;
 }
 
-.pos-page #cart_table .remove-from-cart:hover,
-.pos-page #cart_table .pos-remove-btn:hover {
+.pos-page #pos_table .remove-from-cart:hover,
+.pos-page #pos_table .pos-remove-btn:hover {
     opacity: 1;
 }
 
