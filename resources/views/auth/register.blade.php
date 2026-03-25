@@ -4,9 +4,9 @@
 
 @section('stylesheet')
     <style>
-        
+
     </style>
-@endsection 
+@endsection
 
 @section('content')
     <div class="details">
@@ -43,11 +43,11 @@
                 <strong>{{ $errors->first('contact_number') }}</strong>
             </div>
         @endif
-        
+
         <div class="input-wrapper">
             <label for="username">Choose Username</label>
             <input type="text" name="username" onchange="myfunction(this.value)" id="username" value="{{ old('username') }}"  required>
-            
+
             <p style="color: red" id="username_display"> </p>
         </div>
         @if($errors->has('username'))
@@ -102,7 +102,7 @@
                 <div class="strenght-test">At least 1 special character</div>
             </div>
         </div>
-        
+
         <div class="button-wrapper">
             <button type="submit">@lang('lang_v1.register')</button>
         </div>
@@ -113,8 +113,8 @@
         <div class="form-footer">
             <p>@lang('lang_v1.already_have_an_account') <a href="{{ route('login') }}">@lang('lang_v1.login')</a></p>
         </div>
- 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>       
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 
 $(document).ready(function() {
@@ -124,14 +124,14 @@ $(document).ready(function() {
             this.value = this.value.replace(reg, '');
         }
     });
-    
+
 });
 
 function myfunction(){
-    $("#contact_number").on("keyup", function () {               
+    $("#contact_number").on("keyup", function () {
       if ($(this).val() == 0) {
-      $(this).val(null);                                     
-      }                
+      $(this).val(null);
+      }
     });
     axios.post('/business/register/check-username', {
         username: document.getElementById('username').value,
@@ -211,7 +211,7 @@ function checkPasswordStrength(e) {
 }
 
  </script>
-    
+
 
 @stop
 @section('javascript')

@@ -1,5 +1,10 @@
 @extends('layouts.auth')
 @section('title', __('lang_v1.login'))
+@section('stylesheet')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/login-redesign.css') }}">
+@endsection
 
 @section('content')
 @php
@@ -31,7 +36,10 @@ $username = $demo_types[$_GET['demo_type']];
 
 @endif
 <div class="auth-container {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
-<style> 
+<style>
+.header-auth {
+    display: none !important;
+}
 .show_hide_icon {
     position: absolute;
     top: 25px;
@@ -77,6 +85,40 @@ $username = $demo_types[$_GET['demo_type']];
     </a>
 </div>
 @endif
+<!-- Left decorative panel -->
+<div class="login-left-panel">
+    <div class="login-brand">
+        <div class="login-brand-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 21V16.1C15 15.54 15 15.26 14.891 15.046C14.795 14.858 14.642 14.705 14.454 14.609C14.24 14.5 13.96 14.5 13.4 14.5H10.6C10.04 14.5 9.76 14.5 9.546 14.609C9.358 14.705 9.205 14.858 9.109 15.046C9 15.26 9 15.54 9 16.1V21M3 7.5C3 9.157 4.343 10.5 6 10.5C7.657 10.5 9 9.157 9 7.5C9 9.157 10.343 10.5 12 10.5C13.657 10.5 15 9.157 15 7.5C15 9.157 16.343 10.5 18 10.5C19.657 10.5 21 9.157 21 7.5M6.2 21H17.8C18.92 21 19.48 21 19.908 20.782C20.284 20.59 20.59 20.284 20.782 19.908C21 19.48 21 18.92 21 17.8V6.2C21 5.08 21 4.52 20.782 4.092C20.59 3.716 20.284 3.41 19.908 3.218C19.48 3 18.92 3 17.8 3H6.2C5.08 3 4.52 3 4.092 3.218C3.716 3.41 3.41 3.716 3.218 4.092C3 4.52 3 5.08 3 6.2V17.8C3 18.92 3 19.48 3.218 19.908C3.41 20.284 3.716 20.59 4.092 20.782C4.52 21 5.08 21 6.2 21Z"/>
+            </svg>
+        </div>
+        <h2 class="login-brand-title">Run your business<br>with confidence.</h2>
+        <p class="login-brand-sub">Everything you need to manage sales, inventory, and accounts — in one place.</p>
+        <div class="login-brand-features">
+            <div class="login-feature-pill">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                Real-time sales &amp; performance
+            </div>
+            <div class="login-feature-pill">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                Inventory &amp; stock alerts
+            </div>
+            <div class="login-feature-pill">
+                <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                Integrated accounting
+            </div>
+        </div>
+        <div class="login-brand-dots">
+            <div class="login-brand-dot active"></div>
+            <div class="login-brand-dot"></div>
+            <div class="login-brand-dot"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Right panel: login form -->
+<div class="login-right-panel">
 <div class="form-content login-form">
 <h3 class="auth-text-heading">@lang('lang_v1.login_to_your_account')</h3>
 
@@ -330,6 +372,7 @@ $username = $demo_types[$_GET['demo_type']];
 </style>
 
 </div>
+</div>{{-- /login-right-panel --}}
 
 
 @if(config('app.env') == 'demo')

@@ -86,3 +86,9 @@ manifest.sig
 /public/mix-manifest.json
 
 /public/template/
+
+# Server backups and archives
+*.zip
+*.tar.gz
+.env.backup
+index.html

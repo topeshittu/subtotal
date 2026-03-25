@@ -1,0 +1,448 @@
+/* =============================================================
+   Subtotal — Business Register Page Redesign
+   Multi-step wizard: gradient bg, white card, purple step tabs
+   Font: Inter, Segoe UI | Radius: 10px | Shadow: rgba(45,0,96,.12)
+   ============================================================= */
+
+/* ── Force locally-bundled FA5 (prevents CDN FA6 override) ── */
+.form-content.register-form .fa,
+.form-content.register-form .fas {
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+}
+.form-content.register-form .fab {
+    font-family: "Font Awesome 5 Brands" !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+
+/* ── Font stack ── */
+.login-layout,
+.login-layout * {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Full-page background: match the login left-panel gradient ── */
+.login-layout {
+    background: linear-gradient(145deg, #2d0060 0%, #4c1d95 45%, #7c3aed 100%) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2.5rem 1.5rem !important;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Decorative background circles */
+.login-layout::before {
+    content: '';
+    position: fixed;
+    top: -120px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.login-layout::after {
+    content: '';
+    position: fixed;
+    bottom: -100px;
+    left: -80px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── App logo ── */
+.auth-logo {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1.5rem !important;
+    margin-top: 0 !important;
+}
+
+.auth-logo .logo-text {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.auth-logo img {
+    filter: brightness(0) invert(1);
+    max-height: 44px;
+}
+
+/* ── Wizard card ── */
+.form-content.register-form {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(45, 0, 96, 0.25) !important;
+    width: 820px !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* ── jQuery Steps: outer wrapper ── */
+.form-content.register-form .wizard {
+    background: transparent !important;
+}
+
+/* ── Step tabs (the numbered nav at top) ── */
+.form-content.register-form .wizard > .steps {
+    background: linear-gradient(135deg, #2d0060 0%, #7c3aed 100%);
+    border-radius: 0;
+    padding: 1.5rem 2rem 0;
+}
+
+.form-content.register-form .wizard > .steps > ul {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-content.register-form .wizard > .steps > ul > li {
+    flex: 1;
+}
+
+/* All step states share base */
+.form-content.register-form .wizard > .steps a,
+.form-content.register-form .wizard > .steps a:hover,
+.form-content.register-form .wizard > .steps a:active {
+    border-radius: 8px 8px 0 0 !important;
+    padding: 0.625rem 1rem !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    transition: background 0.2s !important;
+    text-decoration: none !important;
+}
+
+/* Current step */
+.form-content.register-form .wizard > .steps .current a,
+.form-content.register-form .wizard > .steps .current a:hover,
+.form-content.register-form .wizard > .steps .current a:active {
+    background: #ffffff !important;
+    color: #2d0060 !important;
+}
+
+.form-content.register-form .wizard > .steps .current a .number {
+    background: linear-gradient(135deg, #2d0060, #7c3aed);
+    color: #ffffff;
+}
+
+/* Done steps */
+.form-content.register-form .wizard > .steps .done a,
+.form-content.register-form .wizard > .steps .done a:hover,
+.form-content.register-form .wizard > .steps .done a:active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+
+.form-content.register-form .wizard > .steps .done a .number {
+    background: rgba(255, 255, 255, 0.90);
+    color: #2d0060;
+}
+
+/* Disabled (future) steps */
+.form-content.register-form .wizard > .steps .disabled a,
+.form-content.register-form .wizard > .steps .disabled a:hover,
+.form-content.register-form .wizard > .steps .disabled a:active {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.form-content.register-form .wizard > .steps .disabled a .number {
+    background: rgba(255, 255, 255, 0.20);
+    color: rgba(255, 255, 255, 0.70);
+}
+
+/* Step number badge */
+.form-content.register-form .wizard > .steps a .number {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* ── Step content area ── */
+.form-content.register-form .wizard > .content {
+    background: #ffffff !important;
+    border: none !important;
+    padding: 2rem 2.25rem !important;
+    min-height: auto !important;
+}
+
+/* Step headings (h3 tags between fieldsets) */
+.form-content.register-form .wizard > .content > .body h3 {
+    display: none; /* wizard already shows step name in the tab */
+}
+
+/* ── Section headings inside form ── */
+.form-content.register-form .right-col h3,
+.form-content.register-form h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #7c3aed;
+    margin: 1.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+}
+
+/* ── Form labels ── */
+.form-content.register-form .form-group label,
+.form-content.register-form .right-col label {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
+    display: block;
+}
+
+/* ── Input groups ── */
+.form-content.register-form .input-group {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px !important;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #fafafa;
+}
+
+.form-content.register-form .input-group:focus-within {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.10);
+    background: #ffffff;
+}
+
+.form-content.register-form .input-group .input-group-addon {
+    display: table-cell !important;
+    background: transparent !important;
+    border: none !important;
+    border-right: 1px solid #e5e7eb !important;
+    border-radius: 0 !important;
+    color: #7c3aed !important;
+    width: 38px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 0 8px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.form-content.register-form .input-group .input-group-addon i,
+.form-content.register-form .input-group .input-group-addon .fa,
+.form-content.register-form .input-group .input-group-addon .fas {
+    color: #7c3aed !important;
+    font-size: 0.875rem !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.form-content.register-form .input-group .form-control {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    height: 2.625rem !important;
+    font-size: 0.9rem !important;
+    color: #111827 !important;
+    padding: 0 0.75rem !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif !important;
+}
+
+.form-content.register-form .input-group .form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-content.register-form .input-group .form-control::placeholder {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* ── Standalone form controls (no input-group) ── */
+.form-content.register-form .form-group input.form-control,
+.form-content.register-form .form-group select.form-control {
+    border: 1.5px solid #e5e7eb !important;
+    border-radius: 10px !important;
+    height: 2.625rem !important;
+    font-size: 0.9rem !important;
+    color: #111827 !important;
+    background: #fafafa !important;
+    padding: 0 0.75rem !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: none !important;
+    width: 100%;
+}
+
+.form-content.register-form .form-group input.form-control:focus,
+.form-content.register-form .form-group select.form-control:focus {
+    border-color: #7c3aed !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.10) !important;
+    background: #ffffff !important;
+    outline: none !important;
+}
+
+/* ── File input ── */
+.form-content.register-form input[type="file"] {
+    font-size: 0.875rem;
+    color: #6b7280;
+    padding: 0.5rem 0;
+}
+
+/* ── Checkbox (T&C) ── */
+.form-content.register-form .form-group label a.terms_condition {
+    color: #7c3aed;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* ── Navigation buttons (Previous / Next / Finish) ── */
+.form-content.register-form .wizard > .actions {
+    padding: 1rem 2.25rem 1.75rem !important;
+    background: #ffffff;
+    border-top: 1px solid #f3f4f6;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.form-content.register-form .wizard > .actions ul {
+    display: flex;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-content.register-form .wizard > .actions a,
+.form-content.register-form .wizard > .actions a:hover {
+    border-radius: 10px !important;
+    height: 2.75rem !important;
+    padding: 0 1.5rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    transition: opacity 0.2s, transform 0.1s !important;
+}
+
+/* Previous button */
+.form-content.register-form .previous-btn,
+.form-content.register-form .wizard > .actions .previous a {
+    background: #f3f4f6 !important;
+    color: #374151 !important;
+    border: 1.5px solid #e5e7eb !important;
+}
+
+.form-content.register-form .previous-btn:hover,
+.form-content.register-form .wizard > .actions .previous a:hover {
+    background: #e5e7eb !important;
+}
+
+.form-content.register-form .previous-btn:disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+}
+
+/* Next / Finish button */
+.form-content.register-form .next-btn,
+.form-content.register-form .wizard > .actions .next a,
+.form-content.register-form .wizard > .actions .finish a {
+    background: linear-gradient(135deg, #2d0060 0%, #7c3aed 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(45, 0, 96, 0.28) !important;
+}
+
+.form-content.register-form .next-btn:hover,
+.form-content.register-form .wizard > .actions .next a:hover,
+.form-content.register-form .wizard > .actions .finish a:hover {
+    opacity: 0.92 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Disabled next */
+.form-content.register-form .wizard > .actions .disabled a,
+.form-content.register-form .wizard > .actions .disabled a:hover {
+    background: #e5e7eb !important;
+    color: #9ca3af !important;
+    box-shadow: none !important;
+    transform: none !important;
+    cursor: not-allowed !important;
+}
+
+/* ── Form spacing ── */
+.form-content.register-form .form-group {
+    margin-bottom: 1.125rem;
+}
+
+.form-content.register-form .clearfix {
+    margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .form-content.register-form {
+        width: 100% !important;
+        border-radius: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-layout {
+        padding: 1rem !important;
+    }
+
+    .form-content.register-form .wizard > .content {
+        padding: 1.25rem 1rem !important;
+    }
+
+    .form-content.register-form .wizard > .actions {
+        padding: 1rem !important;
+    }
+
+    .form-content.register-form .wizard > .steps {
+        padding: 1rem 1rem 0 !important;
+    }
+
+    .form-content.register-form .wizard > .steps > ul {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .form-content.register-form .wizard > .steps a,
+    .form-content.register-form .wizard > .steps a:hover {
+        border-radius: 8px !important;
+    }
+}

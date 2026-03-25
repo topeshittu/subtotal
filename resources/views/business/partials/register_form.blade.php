@@ -1,5 +1,5 @@
 @if(empty($is_admin))
-    <h3>@lang('business.business')</h3>
+    <h3><i class="fas fa-building"></i> @lang('business.business')</h3>
 @endif
 {!! Form::hidden('language', request()->lang); !!}
 
@@ -157,7 +157,7 @@
 
 <!-- tax details -->
 @if(empty($is_admin))
-    <h3>@lang('business.business_settings')</h3>
+    <h3><i class="fas fa-cog"></i> @lang('business.business_settings')</h3>
 
     <fieldset>
     <div class="col-md-6">
@@ -235,7 +235,7 @@
 
 <!-- Owner Information -->
 @if(empty($is_admin))
-    <h3>@lang('business.owner')</h3>
+    <h3><i class="fas fa-user"></i> @lang('business.owner')</h3>
 @endif
 
 <fieldset>
