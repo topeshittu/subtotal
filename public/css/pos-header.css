@@ -1,0 +1,386 @@
+/* POS Header Square Action Boxes */
+.pos-action-boxes {
+    display: inline-block;
+    padding: 10px;
+}
+
+.pos-action-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 8px 0 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.pos-action-btn:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.pos-action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pos-action-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.pos-action-btn:hover img {
+    opacity: 1;
+}
+
+/* Special styling for instant POS button */
+#instant_pos_btn.pos-action-btn {
+    background: transparent;
+    border: 1px solid #e1e5e9;
+}
+
+#instant_pos_btn.pos-action-btn:hover {
+    background: #f8f9fa;
+    border-color: #28a745;
+}
+
+#instant_pos_btn.pos-action-btn svg {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+#instant_pos_btn.pos-action-btn:hover svg {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pos-action-boxes {
+        padding: 5px;
+    }
+    
+    .pos-action-btn {
+        width: 42px;
+        height: 42px;
+        margin: 0 3px 0 0;
+    }
+    
+    .pos-action-btn img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Animation for floating effect */
+.pos-action-btn {
+    animation: floatIn 0.3s ease-out;
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Special colors for different actions */
+.pos-action-btn[title*="Register"] {
+    border-color: #28a745;
+}
+
+.pos-action-btn[title*="Register"]:hover {
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+.pos-action-btn[title*="Calculator"] {
+    border-color: #6f42c1;
+}
+
+.pos-action-btn[title*="Calculator"]:hover {
+    background: #e7d9f1;
+    border-color: #6f42c1;
+}
+
+.pos-action-btn[title*="Expense"] {
+    border-color: #dc3545;
+}
+
+.pos-action-btn[title*="Expense"]:hover {
+    background: #f8d7da;
+    border-color: #dc3545;
+}
+
+/* Main header layout improvements */
+.pos-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e1e5e9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.right-section {
+    flex-shrink: 0;
+}
+
+/* Style improvements for existing elements */
+.pos-title h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.curr_datetime {
+    font-weight: 500;
+    color: #495057;
+}
+
+
+    /* .modifier-display-section {
+        margin-top: 8px;
+        font-size: 13px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        padding: 8px;
+        border: 1px solid #e9ecef;
+    }
+ */
+
+
+    .combo-header:hover {
+        border-color: #adb5bd;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .combo-toggle-icon {
+        font-size: 12px;
+        color: #007bff;
+        transition: transform 0.3s ease;
+        width: 14px;
+        text-align: center;
+        transform-origin: center;
+    }
+
+    .combo-count {
+        font-size: 13px;
+        color: #495057;
+        font-weight: 500;
+    }
+/* 
+    .combo_modifiers {
+        margin-top: 8px;
+        margin-left: 22px;
+        border-left: 2px solid #dee2e6;
+        padding-left: 12px;
+        transition: all 0.3s ease;
+    } */
+
+    /* .combo-product-item {
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        margin: 6px 0;
+        padding: 6px 8px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        transition: all 0.2s ease;
+    } */
+
+    .combo-product-item.clickable-combo-product:hover {
+        border-color: #2196f3;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(33, 150, 243, 0.15);
+    }
+
+    .combo-product-item.clickable-combo-product:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 3px rgba(33, 150, 243, 0.2);
+    }
+
+    .combo-product-name {
+        font-weight: 500;
+        color: #495057;
+        margin-bottom: 4px;
+    }
+
+    .combo-modifiers-list {
+        margin-left: 16px;
+        margin-top: 4px;
+    }
+
+    .combo-modifier-item {
+        font-size: 12px;
+        /* display: flex; */
+        align-items: center;
+        gap: 6px;
+        margin: 3px 0;
+        padding: 3px 0;
+    }
+
+    .combo-modifier-item i {
+        color: #28a745;
+        font-size: 11px;
+    }
+
+    .combo-modifier-name {
+        color: #28a745;
+        font-weight: 500;
+    }
+
+    .combo-modifier-price {
+        color: #6c757d;
+        margin-left: auto;
+        font-size: 11px;
+    }
+
+    .modifier-edit-button {
+        text-align: left;
+        margin-top: 6px;
+    }
+
+    .modifier-edit-btn {
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 3px;
+        border: 1px solid #007bff;
+        color: #007bff;
+        transition: all 0.2s ease;
+    }
+
+    .modifier-edit-btn:hover {
+        background-color: #007bff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+    }
+
+    /* Plain modifiers styling */
+    .selected_modifiers {
+        margin-top: 6px;
+    }
+
+    .selected_modifiers .product_modifier {
+        margin: 4px 0;
+    }
+
+    .selected_modifiers .modifier-item {
+        margin: 3px 0;
+        padding: 6px 10px;
+        background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+        border-left: 4px solid #28a745;
+        border-radius: 4px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+    }
+     html.dark-mode .selected_modifiers .modifier-item{
+        background: #25212f !important;
+     }
+
+    .selected_modifiers .modifier-item:hover {
+        transform: translateX(2px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .selected_modifiers .modifier-item i {
+        color: #28a745;
+        font-size: 12px;
+    }
+
+    .selected_modifiers .modifier-item span:first-of-type {
+        color: #28a745;
+        font-weight: 500;
+    }
+
+    .selected_modifiers .modifier-item span:last-of-type {
+        color: #6c757d;
+        font-size: 11px;
+        margin-left: auto;
+    }
+
+          .modifier-btn {
+          margin: 2px;
+          transition: all 0.3s ease;
+          border: 2px solid #007bff;
+      }
+
+      .modifier-btn:hover {
+          transform: scale(1.05);
+          box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+      }
+
+      .modifier-btn.btn-success {
+          background-color: #28a745;
+          border-color: #28a745;
+          color: white;
+      }
+
+      .modifier-btn .modifier-icon {
+          margin-right: 5px;
+      }
+
+      .modifier-container {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+      }
+
+      .selected-modifiers-display {
+          min-height: 0;
+      }
+
+      .modifier-edit-btn {
+          align-self: flex-start;
+          font-size: 12px;
+          padding: 4px 8px;
+      }
+
+      .modifier-edit-btn.btn-outline-primary {
+          border-color: var(--primary-color);
+          color: var(--primary-color);
+      }
+
+      .modifier-edit-btn.btn-outline-primary:hover {
+          background-color: var(--primary-color);
+      }

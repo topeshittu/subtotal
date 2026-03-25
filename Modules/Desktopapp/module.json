@@ -1,0 +1,16 @@
+{
+    "name": "Desktopapp",
+    "alias": "desktopapp",
+    "description": "Provide the API's for Desktop Application for BardPOS",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Desktopapp\\Providers\\DesktopappServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

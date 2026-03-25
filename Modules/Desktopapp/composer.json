@@ -1,0 +1,25 @@
+{
+    "name": "bpos/desktopapp",
+    "description": "",
+    "authors": [
+        {
+            "name": "BardPOS",
+            "email": "bardpos@homail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\desktop\\Providers\\DesktopappServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Desktopapp\\": ""
+        }
+    }
+}
