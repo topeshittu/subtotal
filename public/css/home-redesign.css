@@ -343,7 +343,7 @@ main .topbar .dropdown-menu li a:hover {
     background: rgba(255, 255, 255, 0.12) !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
     color: #ffffff !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     height: 2.625rem !important;
     font-size: 0.875rem !important;
     min-width: 200px;
@@ -355,7 +355,7 @@ main .topbar .dropdown-menu li a:hover {
     gap: 0.5rem;
     background: rgba(255, 255, 255, 0.14);
     border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 10px;
+    border-radius: 8px;
     color: #ffffff;
     font-size: 0.875rem;
     font-weight: 500;
@@ -723,7 +723,7 @@ main .topbar .dropdown-menu li a:hover {
 
 .db-table-filter .form-control {
     border: 1.5px solid #e5e7eb !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     height: 2.5rem !important;
     font-size: 0.875rem !important;
     color: #111827 !important;
@@ -747,11 +747,11 @@ main .topbar .dropdown-menu li a:hover {
 }
 
 .db-table-wrap table.max-table thead th:first-child {
-    border-radius: 10px 0 0 0 !important;
+    border-radius: 8px 0 0 0 !important;
 }
 
 .db-table-wrap table.max-table thead th:last-child {
-    border-radius: 0 10px 0 0 !important;
+    border-radius: 0 8px 0 0 !important;
 }
 
 .db-table-wrap table.max-table tbody tr {
@@ -849,4 +849,155 @@ main .topbar .dropdown-menu li a:hover {
     aside.main-sidebar {
         display: block !important;
     }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MODALS
+══════════════════════════════════════════════════════════════ */
+
+.payment_modal .modal-content,
+.edit_pso_status_modal .modal-content,
+.edit_payment_modal .modal-content {
+    border-radius: 14px !important;
+    border: none !important;
+    box-shadow: 0 16px 48px rgba(45, 0, 96, 0.18) !important;
+    overflow: hidden;
+}
+
+.payment_modal .modal-header,
+.edit_pso_status_modal .modal-header,
+.edit_payment_modal .modal-header {
+    background: linear-gradient(135deg, #2d0060, #7c3aed) !important;
+    border-bottom: none !important;
+    padding: 1.125rem 1.5rem !important;
+}
+
+.payment_modal .modal-header h4,
+.edit_pso_status_modal .modal-header h4,
+.edit_payment_modal .modal-header h4,
+.payment_modal .modal-header .modal-title,
+.edit_pso_status_modal .modal-header .modal-title,
+.edit_payment_modal .modal-header .modal-title {
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+}
+
+.payment_modal .modal-header .close,
+.edit_pso_status_modal .modal-header .close,
+.edit_payment_modal .modal-header .close {
+    color: rgba(255, 255, 255, 0.75) !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+.payment_modal .modal-header .close:hover,
+.edit_pso_status_modal .modal-header .close:hover,
+.edit_payment_modal .modal-header .close:hover {
+    color: #ffffff !important;
+}
+
+.payment_modal .modal-body,
+.edit_pso_status_modal .modal-body,
+.edit_payment_modal .modal-body {
+    padding: 1.5rem !important;
+}
+
+.payment_modal .modal-footer,
+.edit_pso_status_modal .modal-footer,
+.edit_payment_modal .modal-footer {
+    border-top: 1px solid #f3f4f6 !important;
+    padding: 1rem 1.5rem !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SELECT2 DROPDOWNS
+══════════════════════════════════════════════════════════════ */
+
+.select2-container--default .select2-dropdown {
+    border: 1.5px solid #ede9fe !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(45, 0, 96, 0.12) !important;
+    overflow: hidden;
+}
+
+.select2-container--default .select2-results__option {
+    font-size: 0.875rem !important;
+    padding: 0.5rem 0.875rem !important;
+    color: #374151 !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #7c3aed !important;
+    color: #ffffff !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #ede9fe !important;
+    color: #7c3aed !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1.5px solid #e5e7eb !important;
+    border-radius: 6px !important;
+    font-size: 0.875rem !important;
+    padding: 0.375rem 0.625rem !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+    border-color: #7c3aed !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+}
+
+/* ── tfoot .bg-gray override ── */
+.db-table-wrap table.max-table tfoot tr.bg-gray {
+    background: #f9fafb !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DATATABLES EXPORT BUTTONS
+══════════════════════════════════════════════════════════════ */
+
+.db-table-wrap .dt-buttons {
+    margin-bottom: 0.75rem !important;
+    display: flex !important;
+    gap: 0.375rem !important;
+    flex-wrap: wrap;
+}
+
+.db-table-wrap .dt-buttons .dt-button {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.75rem !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TOPBAR POS BUTTON
+══════════════════════════════════════════════════════════════ */
+
+main .topbar a.pos {
+    background: linear-gradient(135deg, #2d0060, #7c3aed) !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    padding: 0.4rem 1rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.375rem !important;
+    transition: opacity 0.2s !important;
+    text-decoration: none !important;
+}
+
+main .topbar a.pos:hover {
+    opacity: 0.88 !important;
+    color: #ffffff !important;
+}
+
+main .topbar a.pos svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #ffffff !important;
 }
