@@ -31,6 +31,7 @@
     </style>
 @endif
 <link rel="stylesheet" href="{{ asset('css/override.css?v=' . $asset_v) }}">
+<link rel="stylesheet" href="{{ asset('css/subtotal-buttons.css?v=' . $asset_v) }}">{{-- design system buttons --}}
 
 @if(isset($pos_layout) && $pos_layout)
 	<style type="text/css">

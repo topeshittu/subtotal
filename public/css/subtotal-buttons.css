@@ -1,0 +1,247 @@
+/* ================================================================
+   SUBTOTAL REDESIGN — Button System v1.0
+   Design source: CLAUDE.md
+   Covers: btn-primary, btn-default, btn-danger
+   Load order: after override.css in layouts/partials/css.blade.php
+
+   Why hardcoded hex instead of var(--primary-color):
+   --primary-color defaults to #FFB600 (yellow) from app.blade.php
+   PHP config and is per-business. These tokens pin the design-system
+   purple (#7c3aed) independently so buttons are always on-brand
+   regardless of a business's theme color setting.
+   ================================================================ */
+
+
+/* ── Design-system tokens ──────────────────────────────────────── */
+:root {
+    /* Primary — purple */
+    --btn-primary-base:    #7c3aed;
+    --btn-primary-hover:   #6d28d9;
+    --btn-primary-active:  #5b21b6;
+    --btn-primary-ring:    rgba(124, 58, 237, 0.25);
+
+    /* Default — neutral */
+    --btn-default-text:    #0f172a;
+    --btn-default-border:  #e2e8f0;
+    --btn-default-hover-bg:#f8fafc;
+    --btn-default-hover-bd:#cbd5e1;
+    --btn-default-act-bg:  #f1f5f9;
+    --btn-default-act-bd:  #94a3b8;
+    --btn-default-ring:    rgba(100, 116, 139, 0.15);
+
+    /* Danger — red */
+    --btn-danger-base:     #ef4444;
+    --btn-danger-hover:    #dc2626;
+    --btn-danger-active:   #b91c1c;
+    --btn-danger-ring:     rgba(239, 68, 68, 0.25);
+}
+
+
+/* ── Global: radius + transition on every .btn ─────────────────── */
+/* override.css already sets border-radius:8px with no !important,
+   so this is consistent; we add transition which is missing. */
+.btn {
+    border-radius: 8px !important;
+    transition:
+        background-color 0.2s ease,
+        border-color     0.2s ease,
+        box-shadow       0.2s ease,
+        color            0.2s ease !important;
+    outline: none;
+}
+
+
+/* ================================================================
+   btn-primary
+   Overrides competing rules in override.css lines 324-343 and
+   style.css line 1088-1090. All use !important so we must too.
+   ================================================================ */
+
+.btn-primary,
+.btn-primary:link,
+.btn-primary:visited {
+    background-color: var(--btn-primary-base)  !important;
+    border-color:     var(--btn-primary-base)  !important;
+    color:            #ffffff                  !important;
+    font-weight:      500;
+    box-shadow:       none                     !important;
+}
+
+.btn-primary:hover,
+.btn-primary.hover {
+    background-color: var(--btn-primary-hover) !important;
+    border-color:     var(--btn-primary-hover) !important;
+    color:            #ffffff                  !important;
+    box-shadow:       0 2px 8px var(--btn-primary-ring) !important;
+}
+
+.btn-primary:focus,
+.btn-primary:focus-visible {
+    background-color: var(--btn-primary-base)  !important;
+    border-color:     var(--btn-primary-base)  !important;
+    color:            #ffffff                  !important;
+    box-shadow:       0 0 0 3px var(--btn-primary-ring) !important;
+    outline:          none                     !important;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary {
+    background-color: var(--btn-primary-active) !important;
+    border-color:     var(--btn-primary-active) !important;
+    color:            #ffffff                   !important;
+    box-shadow:       0 0 0 3px var(--btn-primary-ring) !important;
+}
+
+.btn-primary[disabled],
+.btn-primary.disabled,
+fieldset[disabled] .btn-primary,
+.btn-primary[disabled]:hover,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:focus,
+.btn-primary.disabled:focus {
+    background-color: var(--btn-primary-base) !important;
+    border-color:     var(--btn-primary-base) !important;
+    color:            #ffffff                 !important;
+    box-shadow:       none                    !important;
+    opacity:          0.5;
+    cursor:           not-allowed;
+}
+
+
+/* ================================================================
+   btn-default
+   Overrides style.css line 2040-2053 (.modal-footer .btn-default
+   width:159px / height:48px) and the grey AdminLTE default look.
+   ================================================================ */
+
+.btn-default,
+.btn-default:link,
+.btn-default:visited {
+    background-color: #ffffff                        !important;
+    border:           1px solid var(--btn-default-border) !important;
+    color:            var(--btn-default-text)        !important;
+    font-weight:      500;
+    box-shadow:       none                           !important;
+}
+
+.btn-default:hover,
+.btn-default.hover {
+    background-color: var(--btn-default-hover-bg) !important;
+    border-color:     var(--btn-default-hover-bd) !important;
+    color:            var(--btn-default-text)     !important;
+    box-shadow:       none                        !important;
+}
+
+.btn-default:focus,
+.btn-default:focus-visible {
+    background-color: #ffffff                      !important;
+    border-color:     var(--btn-default-act-bd)   !important;
+    color:            var(--btn-default-text)      !important;
+    box-shadow:       0 0 0 3px var(--btn-default-ring) !important;
+    outline:          none                         !important;
+}
+
+.btn-default:active,
+.btn-default.active,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default {
+    background-color: var(--btn-default-act-bg) !important;
+    border-color:     var(--btn-default-act-bd) !important;
+    color:            var(--btn-default-text)   !important;
+    box-shadow:       0 0 0 3px var(--btn-default-ring) !important;
+}
+
+.btn-default[disabled],
+.btn-default.disabled,
+fieldset[disabled] .btn-default,
+.btn-default[disabled]:hover,
+.btn-default.disabled:hover,
+.btn-default[disabled]:focus,
+.btn-default.disabled:focus {
+    background-color: #f8fafc                    !important;
+    border-color:     var(--btn-default-border)  !important;
+    color:            #94a3b8                    !important;
+    box-shadow:       none                       !important;
+    opacity:          0.7;
+    cursor:           not-allowed;
+}
+
+/* style.css hardcodes width:159px + height:48px on modal-footer
+   .btn-default — that breaks small modals and the new padding-based
+   sizing. Reset both here. */
+.modal-footer .btn-default {
+    width:            auto !important;
+    height:           auto !important;
+    background-color: #ffffff                        !important;
+    border:           1px solid var(--btn-default-border) !important;
+    color:            var(--btn-default-text)        !important;
+}
+
+.modal-footer .btn-default:hover {
+    background-color: var(--btn-default-hover-bg) !important;
+    border-color:     var(--btn-default-hover-bd) !important;
+}
+
+
+/* ================================================================
+   btn-danger
+   Overrides override.css lines 146-155 (old Bootstrap red #d9534f).
+   Same shape language as btn-primary — radius, weight, transitions.
+   ================================================================ */
+
+.btn-danger,
+.btn-danger:link,
+.btn-danger:visited {
+    background-color: var(--btn-danger-base) !important;
+    border-color:     var(--btn-danger-base) !important;
+    color:            #ffffff               !important;
+    font-weight:      500;
+    box-shadow:       none                  !important;
+}
+
+.btn-danger:hover,
+.btn-danger.hover {
+    background-color: var(--btn-danger-hover) !important;
+    border-color:     var(--btn-danger-hover) !important;
+    color:            #ffffff                 !important;
+    box-shadow:       0 2px 8px var(--btn-danger-ring) !important;
+}
+
+.btn-danger:focus,
+.btn-danger:focus-visible {
+    background-color: var(--btn-danger-base)            !important;
+    border-color:     var(--btn-danger-base)            !important;
+    color:            #ffffff                           !important;
+    box-shadow:       0 0 0 3px var(--btn-danger-ring)  !important;
+    outline:          none                              !important;
+}
+
+.btn-danger:active,
+.btn-danger.active,
+.btn-danger:active:focus,
+.btn-danger.active:focus,
+.open > .dropdown-toggle.btn-danger {
+    background-color: var(--btn-danger-active)          !important;
+    border-color:     var(--btn-danger-active)          !important;
+    color:            #ffffff                           !important;
+    box-shadow:       0 0 0 3px var(--btn-danger-ring)  !important;
+}
+
+.btn-danger[disabled],
+.btn-danger.disabled,
+fieldset[disabled] .btn-danger,
+.btn-danger[disabled]:hover,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:focus,
+.btn-danger.disabled:focus {
+    background-color: var(--btn-danger-base) !important;
+    border-color:     var(--btn-danger-base) !important;
+    color:            #ffffff               !important;
+    box-shadow:       none                  !important;
+    opacity:          0.5;
+    cursor:           not-allowed;
+}
